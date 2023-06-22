@@ -38,3 +38,7 @@ npm-debug.log
 #system generated files
 .DS_Store
 
+
+.evn
+.dockerignore
+

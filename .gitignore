@@ -35,3 +35,6 @@ spa-*.tar
 npm-debug.log
 /assets/node_modules/
 
+#system generated files
+.DS_Store
+

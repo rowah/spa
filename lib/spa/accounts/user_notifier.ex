@@ -8,7 +8,7 @@ defmodule Spa.Accounts.UserNotifier do
     email =
       new()
       |> to(recipient)
-      |> from({"Spa", "contact@example.com"})
+      |> from({"TasteTrade", "contact@tastetrade.com"})
       |> subject(subject)
       |> text_body(body)
 

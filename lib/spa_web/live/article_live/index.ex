@@ -4,9 +4,12 @@ defmodule SpaWeb.ArticleLive.Index do
   alias Spa.Articles
   alias Spa.Articles.Article
 
+  on_mount({SpaWeb.UserAuth, :mount_current_user})
+
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, stream(socket, :articles, Articles.list_articles())}
+    author_id = socket.assigns.current_user.id
+    {:ok, stream(socket, :articles, Articles.list_articles_by_author_id(author_id))}
   end
 
   @impl true

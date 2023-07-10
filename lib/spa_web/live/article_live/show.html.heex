@@ -1,6 +1,6 @@
-<div class="mx-auto max-w-3xl">
+<div class="mx-auto max-w-3xl pt-12">
 <div class="mt-3">
-<.header>
+<%!-- <.header>
   Article <%= @article.id %>
   <:subtitle>This is a article record from your database.</:subtitle>
   <:actions>
@@ -8,16 +8,22 @@
       <.button>Edit article</.button>
     </.link>
   </:actions>
-</.header>
+</.header> --%>
+<h2 class="text-center text-3xl font-bold tracking-tight sm:text-4xl"><%= @article.title %></h2>
 
-<.list>
-  <:item title="Title"><%= @article.title %></:item>
-  <:item title="Content"><%= @article.content %></:item>
-</.list>
+<div class="article-content mt-10 font-normal text-md">
+  <%!-- <div> <%= @article.title %> </div> --%>
+  <div><%= Phoenix.HTML.Format.text_to_html(@article.content )%></div>
+</div>
+
+<%!-- <.list>
+  <:item title="Title"></:item>
+  <:item title="Content"><%= Phoenix.HTML.Format.text_to_html(@article.content )%></:item>
+</.list> --%>
 
 <.back navigate={~p"/articles"}>Back to articles</.back>
 
-<.modal :if={@live_action == :edit} id="article-modal" show on_cancel={JS.patch(~p"/articles/#{@article}")}>
+<%!-- <.modal :if={@live_action == :edit} id="article-modal" show on_cancel={JS.patch(~p"/articles/#{@article}")}>
   <.live_component
     module={SpaWeb.ArticleLive.FormComponent}
     id={@article.id}
@@ -26,6 +32,6 @@
     article={@article}
     patch={~p"/articles/#{@article}"}
   />
-</.modal>
+</.modal> --%>
 </div>
 </div>

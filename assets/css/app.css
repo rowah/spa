@@ -3,3 +3,9 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+
+@layer components {
+  .article-content p {
+    @apply prose prose-lg prose-indigo mx-auto mb-6 text-gray-800;
+  }
+}
